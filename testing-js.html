@@ -6,7 +6,7 @@
 </head>
 <body>
     
-    <h1>Testing sending data to the server</h1>
+    <h1>Testing sending data to the server via Javascript</h1>
     
     <ul></ul>
     
@@ -37,7 +37,7 @@
             "format": "json",
             "ea.campaign.id" : "2018",
 
-            "utm_medium": "WOWtest_medium",
+            "utm_medium": "test_medium",
             "utm_source": "test_source",
             "utm_campaign": "test_campaign",
             "utm_content": "test_content",
@@ -65,8 +65,8 @@
 
         } else { // FIXME - WHAT HAPPENS WHEN THE SERVER RESPONDS THAT NO
 
-            console.error("Error response sending data.");
-            jQuery("ul").append("<li>Error response sending data.</li>");
+            console.error("Error in the server response.");
+            jQuery("ul").append("<li>Error in the server response.</li>");
 
         }
 
@@ -78,6 +78,7 @@
     }).fail(function(form) {
 
         console.error("Error sending data to the old api emulator");
+        jQuery("ul").append("<li>Error while sending data to the old api emulator.</li>");
 
     });                
 

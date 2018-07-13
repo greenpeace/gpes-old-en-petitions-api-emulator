@@ -54,7 +54,7 @@ The `vendor` folder, obtained with composer, should be here as well.
 
 ## Test it!
 
-Visit `test.html` in your API server with your browser. Then confirm there's data in BigQuery with:
+Visit `testing-js.html` in your API server with your browser. Then confirm there's data in BigQuery with:
 
 ```sql
 #standardSQL
