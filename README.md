@@ -1,15 +1,16 @@
 # EN old API emulator
 
-**This script emulates the old EN API for data capture petitions. It stores petition signups in a Google Big Query table instead of EN.** It's useful if you have legacy **data capture** petitions and need to have them running in 2019 without changing the code that much. 
+**This script emulates the old EN API for data capture petitions. It stores petition signups in a Google Big Query table instead of EN.** 
 
-With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. Please note this was developed for the Spanish office, so it might not fit as easily in other NROs.
+It's useful if you have legacy ** petitions** and need to have them running in 2019 without changing the code.  With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. 
 
-For more information on sending data to BQ visit [GoogleBig Query Libraries](https://cloud.google.com/bigquery/docs/reference/libraries).
-
+Please note this was developed for the Spanish office, so it will need small adjustments before it can be used by other NROs.
 
 ## Install
 
 **Important**: To adapt this script to your field names, modify `index.php` in this repository.
+
+For more information on sending data to BQ visit [GoogleBig Query Libraries](https://cloud.google.com/bigquery/docs/reference/libraries).
 
 ### Configure Google Cloud and Big Query
 
@@ -26,7 +27,7 @@ signed_date:DATE,signed_time:FLOAT,ea_campaign_id:STRING,utm_medium:STRING,utm_s
 Now you'll need to configure the php script with the service account info (the .json file), and project, dataset and table info.
 
 1. Upload the .json service account file to your server. **Security warning:** Put the json file in a folder that doesn't expose it to outsiders, as with this file anyone can access your data.
-2. Download this repository
+2. Download this repository with Git: `git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
 3. Open `config.php.dist` and save it as `config.php`.
 4. In `config.php`:
   * Modify in the path to the .json service account file in your server.
@@ -48,7 +49,8 @@ php composer.phar require google/cloud-bigquery
 * `config.php`
 * `input.php`
 * `bigquery.php`
-* `testing.html`
+* `testing-html.html`
+* `testing-js.html`
 
 The `vendor` folder, obtained with composer, should be here as well. 
 
