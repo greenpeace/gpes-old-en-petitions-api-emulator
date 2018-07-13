@@ -15,7 +15,7 @@ $data = [
     
       "ea_campaign_id" => isset( $_REQUEST['ea_campaign_id'] ) ? inputSafe( $_REQUEST['ea_campaign_id'], 15): '0',
       
-      "utm_medium" => isset( $_REQUEST['utm_medium'] ) ? inputSafe( $_REQUEST['utm_medium'], 15): 'Koikas',
+      "utm_medium" => isset( $_REQUEST['utm_medium'] ) ? inputSafe( $_REQUEST['utm_medium'], 15): '',
       "utm_source" => isset( $_REQUEST['utm_source'] ) ? inputSafe( $_REQUEST['utm_source'], 15): '',
       "utm_campaign" => isset( $_REQUEST['utm_campaign'] ) ? inputSafe( $_REQUEST['utm_campaign'], 15): '',
       "utm_content" => isset( $_REQUEST['utm_content'] ) ? inputSafe( $_REQUEST['utm_content'], 15): '',
@@ -32,8 +32,8 @@ $data = [
       "phone_number" => isset( $_REQUEST['phone_number'] ) ? inputSafe( $_REQUEST['phone_number'], 20): '',
       "postcode" => isset( $_REQUEST['postcode'] ) ? inputSafe( $_REQUEST['postcode'], 10): '',
 
-      "email_ok" => isset( $_REQUEST['email_ok'] ) ? inputSafe( $_REQUEST['email_ok'], 1): 'Y',
-      "privacy" => isset( $_REQUEST['privacy'] ) ? inputSafe( $_REQUEST['privacy'], 1): 'Y',
+      "email_ok" => isset( $_REQUEST['email_ok'] ) ? inputSafe( $_REQUEST['email_ok'], 1): '',
+      "privacy" => isset( $_REQUEST['privacy'] ) ? inputSafe( $_REQUEST['privacy'], 1): '',
 
 ];
 
