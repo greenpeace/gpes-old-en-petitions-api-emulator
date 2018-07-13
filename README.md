@@ -63,6 +63,8 @@ SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
 
 At this point you should see the example data in BigQuery.
 
+Then do the same for `testing-html.html`.
+
 ## Point your forms to your new API
 
 In your forms, change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. It should be the `index.php`file or it's parent folder.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    
+    <h1>Testing sending data to the server via HTML</h1>
+        
+    <p>Edit the html file to configure the tests.</p>
+
+    <p>Confirm the signup data is in <a href="https://bigquery.cloud.google.com/" target="_blank">BigQuery</a> with the query:</p>
+
+    <pre>
+    #standardSQL
+    SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
+    </pre>
+    
+
+    <form method="POST" action="index.php">
+
+        <input type="hidden" name="ea.campaign.id" value="9999" />
+
+        <div>
+            <label for="first_name">First name</label>
+            <div>
+               <input id="first_name" type="text" name="first_name" value="My first name" />
+            </div>
+        </div>
+
+        <div>
+            <label for="last_name">Last name</label>
+            <div>
+               <input id="last_name" type="text" name="last_name" value="My last name" />
+            </div>
+        </div>
+
+        <div>
+            <label for="id_number">Id number</label>
+            <div>
+               <input id="id_number" type="text" name="id_number" value="y4011790w" />
+            </div>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <div>
+               <input id="email" type="text" name="email" value="test@ccloule.com" />
+            </div>
+        </div>
+
+        <div>
+            <label for="phone_number">Phone number</label>
+            <div>
+               <input id="phone_number" type="text" name="phone_number" value="666666611" />
+            </div>
+        </div>
+
+        <div>
+            <label for="postcode">Post code</label>
+            <div>
+               <input id="postcode" type="text" name="postcode" value="23000" />
+            </div>
+        </div>
+
+        <div>
+            <input id="email_okY" type="checkbox" name="email_ok" value="Y" checked />
+            <label for="email_okY"> Quiero recibir más información sobre las campañas de Greenpeace.</label>
+        </div>
+
+        <div>
+            <input type="submit" value=" Enviar ">
+        </div>
+
+    </form>
+
+    
+    
+</body>
+</html>
