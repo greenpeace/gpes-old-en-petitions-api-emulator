@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    
+    <h1>Testing sending data to the server</h1>
+    
+    <ul></ul>
+    
+    <p>Edit the html file to configure the tests.</p>
+
+    <p>Confirm the signup data is in <a href="https://bigquery.cloud.google.com/" target="_blank">BigQuery</a> with the query:</p>
+
+    <pre>
+    #standardSQL
+    SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
+    </pre>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script>
+
+    /*global jQuery, console */
+    jQuery.ajax({
+
+        beforeSend: function() {
+            console.log("Sending data...");
+            jQuery("ul").append("<li>Sending data...</li>");
+        },
+        url : "index.php",
+        dataType: 'jsonp',
+        data : {
+
+            "format": "json",
+            "ea.campaign.id" : "2018",
+
+            "utm_medium": "WOWtest_medium",
+            "utm_source": "test_source",
+            "utm_campaign": "test_campaign",
+            "utm_content": "test_content",
+            "utm_term": "test_term",
+            "en_txn6": "test_gclid",
+
+            "first_name": "Test first name",
+            "last_name" : "Test last name",
+
+            "id_number": "y2044796w",
+            "email": "test9@test.com",
+            "phone_number": "666666666",
+            "postcode": "38000",
+            "email_ok": "Y",
+
+            "privacy": "Y"
+        }
+
+    }).done(function(data) {
+
+        if ( data.messages.length === 0 ) {
+
+            console.log("Confirmation received from the server");
+            jQuery("ul").append("<li>Confirmation received from the server.</li>");
+
+        } else { // FIXME - WHAT HAPPENS WHEN THE SERVER RESPONDS THAT NO
+
+            console.error("Error response sending data.");
+            jQuery("ul").append("<li>Error response sending data.</li>");
+
+        }
+
+
+    }).always(function() {
+
+
+
+    }).fail(function(form) {
+
+        console.error("Error sending data to the old api emulator");
+
+    });                
+
+    </script>
+    
+</body>
+</html>

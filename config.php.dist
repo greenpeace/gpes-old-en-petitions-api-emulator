@@ -1,0 +1,14 @@
+<?php
+
+// The path to the Json credentials for the Google Cloud service account file goes here:
+putenv('GOOGLE_APPLICATION_CREDENTIALS=/home/your-user/user-keys/your-service-account-file.json');
+
+// See also: https://cloud.google.com/bigquery/docs/reference/libraries
+
+// Where to insert the data in BigQuery:
+
+define('BIGQUERY_PROJECT_ID', 'your-project-in-the-url');
+define('BIGQUERY_DATASET', 'gpes_en_old_api');
+define('BIGQUERY_TABLE', 'signups')
+
+?>
