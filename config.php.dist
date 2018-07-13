@@ -9,6 +9,8 @@ putenv('GOOGLE_APPLICATION_CREDENTIALS=/home/your-user/user-keys/your-service-ac
 
 define('BIGQUERY_PROJECT_ID', 'your-project-in-the-url');
 define('BIGQUERY_DATASET', 'gpes_en_old_api');
-define('BIGQUERY_TABLE', 'signups')
+define('BIGQUERY_TABLE', 'signups');
+
+define('COMMON_THANK_YOU_PAGE', 'https://es.greenpeace.org/es/');
 
 ?>

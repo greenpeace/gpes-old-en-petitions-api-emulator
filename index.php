@@ -49,8 +49,8 @@ $callback = isset( $_REQUEST['callback'] ) ?  inputSafe( $_REQUEST['callback'], 
 // 3.1 - The old API format was jSonP, bellow return a response to jSonP requests
 
 if ( $dataMode == 'json' && $callback != '') {
-    $response = array();
     
+    $response = array();
     $response['sessionId'] = '00a9921a-06ef-43de-a5d1-49f835664e15';
     $response['campaignId'] = $data['ea_campaign_id'];
     $response['name'] = 'EN old API Emulator';
@@ -60,10 +60,14 @@ if ( $dataMode == 'json' && $callback != '') {
     $response['messages'] = array();
     $response['pages'] = array();
     $response = json_encode( $response );
+    
     header('Content-Type: application/javascript; charset=utf8');
-    echo $callback.'('.$response.');';    
-}
+    echo $callback.'('.$response.');';   
+    
+} else { // To use in html without JavaScript
+    
+    header('Location: ' . COMMON_THANK_YOU_PAGE);
 
-// 3.2 - (We can add other formats here)
+}
 
 ?>
