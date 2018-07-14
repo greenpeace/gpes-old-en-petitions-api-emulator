@@ -28,9 +28,9 @@ $data = [
       "first_name" => isset( $_REQUEST['first_name'] ) ? inputSafe( $_REQUEST['first_name'], 100): '',
       "last_name" => isset( $_REQUEST['last_name'] ) ? inputSafe( $_REQUEST['last_name'], 100): '',
       "id_number" => isset( $_REQUEST['id_number'] ) ? inputSafe( $_REQUEST['id_number'], 10): '',
-      "email" => isset( $_REQUEST['email'] ) ? inputSafe( $_REQUEST['email'], 100): '',
-      "phone_number" => isset( $_REQUEST['phone_number'] ) ? inputSafe( $_REQUEST['phone_number'], 20): '',
-      "postcode" => isset( $_REQUEST['postcode'] ) ? inputSafe( $_REQUEST['postcode'], 10): '',
+      "email" => isset( $_REQUEST['email'] ) ? trim(inputSafe( $_REQUEST['email'], 100)) : '',
+      "phone_number" => isset( $_REQUEST['phone_number'] ) ? trim(inputSafe( $_REQUEST['phone_number'], 20)) : '',
+      "postcode" => isset( $_REQUEST['postcode'] ) ? trim(inputSafe( $_REQUEST['postcode'], 10)) : '',
 
       "email_ok" => isset( $_REQUEST['email_ok'] ) ? inputSafe( $_REQUEST['email_ok'], 1): '',
       "privacy" => isset( $_REQUEST['privacy'] ) ? inputSafe( $_REQUEST['privacy'], 1): '',
