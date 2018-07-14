@@ -39,7 +39,11 @@ $data = [
 
 // 2nd - Insert data into bigquery
 
-stream_row($data);
+if ( filter_var( $data['email'], FILTER_VALIDATE_EMAIL) ) {
+    stream_row($data);
+} else {
+    error_log('Invalid email, not stored in BigQuery');
+}
 
 // 3rd - Return a response
 
