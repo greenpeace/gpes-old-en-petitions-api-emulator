@@ -19,7 +19,7 @@ For more information on sending data to BQ please visit the pages on [Google Big
 3. Create an empty Big Query table inside that dataset, *(for example: `signups`)* with the following table schema:
 
 ```text
-signed_date:DATE,signed_time:FLOAT,ea_campaign_id:STRING,utm_medium:STRING,utm_source:STRING,utm_campaign:STRING,utm_content:STRING,utm_term:STRING,gclid:STRING,ip:STRING,user_agent:STRING,first_name:STRING,last_name:STRING,id_number:STRING,email:STRING,phone_number:STRING,postcode:STRING,email_ok:STRING,privacy:STRING
+signed_date:DATE,signed_time:FLOAT,ea_campaign_id:STRING,page_url:STRING,utm_medium:STRING,utm_source:STRING,utm_campaign:STRING,utm_content:STRING,utm_term:STRING,gclid:STRING,ip:STRING,user_agent:STRING,first_name:STRING,last_name:STRING,id_number:STRING,email:STRING,phone_number:STRING,postcode:STRING,email_ok:STRING,privacy:STRING
 ```
 
 ### Install and configure this php script

@@ -14,6 +14,7 @@ $data = [
       "signed_time" => microtime(true), // Float
     
       "ea_campaign_id" => isset( $_REQUEST['ea_campaign_id'] ) ? inputSafe( $_REQUEST['ea_campaign_id'], 15): '0',
+      "page_url" => isset( $_SERVER['HTTP_REFERER'] ) ? inputSafe( $_SERVER['HTTP_REFERER'], 200): '',
       
       "utm_medium" => isset( $_REQUEST['utm_medium'] ) ? inputSafe( $_REQUEST['utm_medium'], 15): '',
       "utm_source" => isset( $_REQUEST['utm_source'] ) ? inputSafe( $_REQUEST['utm_source'], 15): '',
