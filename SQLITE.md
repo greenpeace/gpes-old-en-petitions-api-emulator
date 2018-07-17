@@ -1,6 +1,8 @@
-#### Configure SQLite
+# SQLite
 
-First create a SQLlite file with a database. You can upload the gp_es_old_api.db file or create a SQLite table with the command:
+## Configure SQLite
+
+We need an SQLlite file with the database in the server. You can upload the `gp_es_old_api.db` file OR create a SQLite table with this structure:
 
 ```sql
 BEGIN TRANSACTION;
@@ -30,9 +32,11 @@ CREATE TABLE IF NOT EXISTS `signups` (
 COMMIT;
 ```
 
-Please ensure that users can't download the database file as this would be a major security breach. Put your .db file in a folder outside the server.
+Please make sure that users can't download the database file from the server, as this would be a major security breach. Put your .db file in a folder outside the server root.
 
-Then at the end of `config.php` uncomment the lines:
+## Configure this php script
+
+Open `config.php.dist` and save it as `config.php`. Then at the end of `config.php` uncomment the lines:
 
 ```php
 use Medoo\Medoo;
@@ -42,4 +46,6 @@ $database = new Medoo([
 ]);
 ```
 
-And configure the `database_file` option with the path to your database file.
+Now configure the `database_file` option above with the path to your database file.
+
+Save the `config.php` file.

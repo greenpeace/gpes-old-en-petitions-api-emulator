@@ -10,9 +10,9 @@ Please note this script was developed for the Spanish Office, so it will need sm
 
 **Important**: To adapt this script to your field names, modify `index.php` in this repository. Please note you'll need to adjust your database fields as well.
 
-### 1 - Install the libraries
+### 1 - Install this script and the libraries
 
-In your PHP server, install Composer and the required libraries with the command:
+Install Composer and the required libraries with the command:
 
 ```bash
 curl -sS https://getcomposer.org/installer | php
@@ -20,14 +20,21 @@ php composer.phar require google/cloud-bigquery
 php composer.phar require catfan/Medoo
 ```
 
-### 2 - Database
+Download this repository with Git:
 
-To store the signups you can use **one** of the following options:
+`git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
 
-* [Google Cloud and Big Query](BIGQUERY.md)
-* [SQLite](SQLITE.md)
 
-### 3 - Upload this repo files
+### 2 - Configure the database
+
+To store the signups you can use **Bigquery** or **SQLite**. See how to:
+
+* Configure [Google Cloud and Big Query](BIGQUERY.md)
+* Configure [SQLite](SQLITE.md)
+
+Follow the instructions in one of the the links above and continue bellow.
+
+### 3 - Upload the files to the server
 
 * `index.php`
 * `config.php`
@@ -36,16 +43,16 @@ To store the signups you can use **one** of the following options:
 * `testing-html.html`
 * `testing-js.html`
 
-The `vendor` folder, obtained with composer, should be here as well. 
+The `vendor` folder, obtained with composer, should be uploaded as well. 
 
 ## Test it!
 
-1. Visit [testing-js.html](testing-js.html) in your API server with your browser. 
+1. With your browser, visit [testing-js.html](testing-js.html) in your server. 
 2. Confirm there's data in your new petitions database. 
 3. Test the html form redirection by submitting the form in [testing-html.html](testing-html.html).
 4. Confirm again that your last form test is in the database.
 
-If you use **BigQuery**, you can check your database with:
+If you use **BigQuery**, you can check your database with the query:
 
 ```sql
 #standardSQL

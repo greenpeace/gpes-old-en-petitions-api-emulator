@@ -1,4 +1,6 @@
-#### Configure Google Cloud and Big Query
+# Google Cloud and Big Query
+
+## Configure BigQuery
 
 1. Create a json [Google Cloud service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) with the role *BigQuery User* and download the json access file. Later you'll need to link to it from the `config.php` file.
 2. Create a Big Query dataset and share it with the service account. *(for example: `gpes_en_old_api`)*
@@ -8,12 +10,11 @@
 signed_date:DATE,signed_time:FLOAT,ea_campaign_id:STRING,page_url:STRING,utm_medium:STRING,utm_source:STRING,utm_campaign:STRING,utm_content:STRING,utm_term:STRING,gclid:STRING,ip:STRING,user_agent:STRING,first_name:STRING,last_name:STRING,id_number:STRING,email:STRING,phone_number:STRING,postcode:STRING,email_ok:STRING,privacy:STRING
 ```
 
-#### Install and configure this php script
+## Configure this php script
 
 Now you'll need to configure the php script with the service account info (the .json file), and project, dataset and table info.
 
 1. Upload the .json service account file to your server. Please put the json file in a folder that doesn't expose it to outsiders, as if anyone obtains this file it can access your data.
-2. Download this repository with Git: `git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
 3. Open `config.php.dist` and save it as `config.php`.
 4. In `config.php`:
   * Modify in the path to the .json service account file in your server.
