@@ -50,7 +50,7 @@ $database = new Medoo([
 	'port' => 3306,
 	'logging' => true,
 	'option' => [
-		PDO::ATTR_CASE => PDO::CASE_NATURAL,
+        PDO::ATTR_CASE => PDO::CASE_NATURAL,
         PDO::MYSQL_ATTR_SSL_KEY  => '/home/your-user/user-keys/client-key.pem',
         PDO::MYSQL_ATTR_SSL_CERT => '/home/your-user/user-keys/client-cert.pem',
         PDO::MYSQL_ATTR_SSL_CA   => '/home/your-user/user-keys/server-ca.pem',
@@ -62,6 +62,6 @@ $database = new Medoo([
 ]);
 ```
 
-Now configure the options above with the path to your database file.
+Now configure the options above with the path to your SSL keys and other MySQL settings.
 
 Save the `config.php` file.

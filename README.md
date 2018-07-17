@@ -10,9 +10,9 @@ Please note this script was developed for the Spanish Office, so it will need sm
 
 **Important**: To adapt this script to your field names, modify `index.php` in this repository. Please note you'll need to adjust your database fields as well.
 
-### 1 - Install this script and the libraries
+### 1 - Download this script and the required libraries
 
-Install Composer and the required libraries with the command:
+Get Composer and download the required libraries with the command:
 
 ```bash
 curl -sS https://getcomposer.org/installer | php
@@ -20,20 +20,19 @@ php composer.phar require google/cloud-bigquery
 php composer.phar require catfan/Medoo
 ```
 
-Download this repository with Git:
+Download this script with Git:
 
 `git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
 
-
 ### 2 - Configure the database
 
-To store the signups you can use **Bigquery** or **SQLite**. See how to:
+To store the signups you can use **Bigquery**, **SQLite** or **MySQL**. See how to:
 
 * Configure [Google Cloud and Big Query](BIGQUERY.md)
 * Configure [SQLite](SQLITE.md)
-* Configure [MySQL](MySQL.md)
+* Configure [MySQL](MySQL.md) - For example for Google Cloud SQL
 
-Follow the instructions in one of the the links above and continue bellow.
+Follow the instructions in one of the the links above and then continue bellow.
 
 ### 3 - Upload the files to the server
 
@@ -44,7 +43,7 @@ Follow the instructions in one of the the links above and continue bellow.
 * `testing-html.html`
 * `testing-js.html`
 
-The `vendor` folder, obtained with composer, should be uploaded as well. 
+The `vendor` folder, downloaded with composer, should be uploaded as well. 
 
 ## Test it!
 
@@ -60,7 +59,9 @@ If you use **BigQuery**, you can check your database with the query:
 SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
 ```
 
-And if you use **SQLite** you can download your database file and open it in your computer with an [SQLite client](http://sqlitebrowser.org/).
+If you use **SQLite** you can download your database file and open it in your computer with an [SQLite client](http://sqlitebrowser.org/).
+
+For **MySQL** you can use a client like for example [Sequel Pro](https://www.sequelpro.com/) to access your data.
 
 ## Point your forms to your new API
 
