@@ -33,4 +33,32 @@ define('COMMON_THANK_YOU_PAGE', 'https://es.greenpeace.org/es/');
 //	'database_file' => '/home/your-user/db/gp_es_old_api.db'
 // ]);
 
+
+/**
+ * USE CLOUD SQL (MYSQL) TO STORE DATA
+ * Uncomment and configure bellow to enable sending data to Google Cloud SQL (MySQL)
+ */
+
+//use Medoo\Medoo;
+//$database = new Medoo([
+//	'database_type' => 'mysql',
+//	'database_name' => 'gpes_en_old_api',
+//	'server' => 'YOUR-SERVER-IP',
+//	'username' => 'YOUR-MYSQL-USERNAME',
+//	'password' => 'YOUR-USER-MYSQL-PASSWORD',
+//	'charset' => 'utf8',
+//	'port' => 3306,
+//	'logging' => true,
+//	'option' => [
+//		PDO::ATTR_CASE => PDO::CASE_NATURAL,
+//        PDO::MYSQL_ATTR_SSL_KEY  => '/home/your-user/user-keys/client-key.pem',
+//        PDO::MYSQL_ATTR_SSL_CERT => '/home/your-user/user-keys/client-cert.pem',
+//        PDO::MYSQL_ATTR_SSL_CA   => '/home/your-user/user-keys/server-ca.pem',
+//        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+//	],
+//	'command' => [
+//		'SET SQL_MODE=ANSI_QUOTES'
+//	]
+//]);
+
 ?>
