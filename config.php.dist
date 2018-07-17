@@ -14,7 +14,7 @@ define('COMMON_THANK_YOU_PAGE', 'https://es.greenpeace.org/es/');
  * Add the path to the Json credentials for the Google Cloud service account file.
  * Add project id, dataset name and table name
  * See also: https://cloud.google.com/bigquery/docs/reference/libraries
- * Comment the following lines to disable sending data to BigQuery
+ * Uncomment and configure to enable sending data to BigQuery
  */
  
 // putenv('GOOGLE_APPLICATION_CREDENTIALS=/home/your-user/user-keys/your-service-account-file.json');
@@ -24,7 +24,7 @@ define('COMMON_THANK_YOU_PAGE', 'https://es.greenpeace.org/es/');
 
 /**
  * USE SQLITE TO STORE DATA
- * Comment the following lines to disable sending data to SQLite
+ * Uncomment and configure bellow to enable sending data to SQLite
  */
  
 // use Medoo\Medoo;
