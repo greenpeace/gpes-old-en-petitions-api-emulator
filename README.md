@@ -1,6 +1,6 @@
 # EN old API emulator
 
-**This script emulates the old EN API but stores petition signups outside EN.** You can store petition data in BigQuery or SQlite.
+**This script emulates the old EN API but stores petition signups outside EN.** You can store petition data in BigQuery, SQlite or MySQL (For example Google Cloud SQL).
 
 This script is useful if you have **legacy petitions** and need to have them running in 2019 **without changing the code** to the new API.  With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. 
 
@@ -31,6 +31,7 @@ To store the signups you can use **Bigquery** or **SQLite**. See how to:
 
 * Configure [Google Cloud and Big Query](BIGQUERY.md)
 * Configure [SQLite](SQLITE.md)
+* Configure [MySQL](MySQL.md)
 
 Follow the instructions in one of the the links above and continue bellow.
 
