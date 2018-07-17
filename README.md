@@ -113,16 +113,19 @@ The `vendor` folder, obtained with composer, should be here as well.
 
 ## Test it!
 
-Visit `testing-js.html` in your API server with your browser. Then confirm there's data in BigQuery with:
+1. Visit [testing-js.html](testing-js.html) in your API server with your browser. 
+2. Confirm there's data in your new petitions database. 
+3. Test the html form redirection by submitting the form in [testing-html.html](testing-html.html).
+4. Confirm again that your last form test is in the database.
+
+If you use **BigQuery**, you can check your database with:
 
 ```sql
 #standardSQL
 SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
 ```
 
-At this point you should see the example data in BigQuery.
-
-Then do the same for `testing-html.html`.
+And if you use **SQLite** you can download your database file and open it in your computer with an [SQLite client](http://sqlitebrowser.org/).
 
 ## Point your forms to your new API
 
