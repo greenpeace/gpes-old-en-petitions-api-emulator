@@ -41,7 +41,11 @@ $data = [
 // 2nd - Insert data into bigquery
 
 if ( filter_var( $data['email'], FILTER_VALIDATE_EMAIL) ) {
-    stream_row($data);
+    
+    if ( defined('BIGQUERY_PROJECT_ID') && defined('BIGQUERY_DATASET') && defined('BIGQUERY_TABLE') && getenv("GOOGLE_APPLICATION_CREDENTIALS") !== false ) {
+        stream_row($data);
+    }
+    
 } else {
     error_log('Invalid email, not stored in BigQuery');
 }
