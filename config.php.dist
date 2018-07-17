@@ -1,18 +1,36 @@
 <?php
 
-// The path to the Json credentials for the Google Cloud service account file goes here:
-putenv('GOOGLE_APPLICATION_CREDENTIALS=/home/your-user/user-keys/your-service-account-file.json');
-
-// See also https://cloud.google.com/bigquery/docs/reference/libraries for more information.
-
-// Define where the petition data should be stored. (Google BigQuery's project id, dataset name and table name)
-
-define('BIGQUERY_PROJECT_ID', 'your-project-in-the-url');
-define('BIGQUERY_DATASET', 'gpes_en_old_api');
-define('BIGQUERY_TABLE', 'signups');
-
-// The common thank-you page is used only when the form is submitted by a user with Javascript disabled. As this is rare and as Google Analytics can’t measure page views, any page in your website will do. 
+/**
+ * Define the common thank you page.
+ * The common thank-you page is used only when the form is submitted by a user with Javascript disabled. 
+ * As this is rare and as Google Analytics can’t measure page views, any page in your website will do. 
+ */
 
 define('COMMON_THANK_YOU_PAGE', 'https://es.greenpeace.org/es/');
+
+
+/**
+ * USE GOOGLE BIG QUERY TO STORE DATA
+ * Add the path to the Json credentials for the Google Cloud service account file.
+ * Add project id, dataset name and table name
+ * See also: https://cloud.google.com/bigquery/docs/reference/libraries
+ * Uncomment and configure to enable sending data to BigQuery
+ */
+ 
+// putenv('GOOGLE_APPLICATION_CREDENTIALS=/home/your-user/user-keys/your-service-account-file.json');
+// define('BIGQUERY_PROJECT_ID', 'your-project-in-the-url');
+// define('BIGQUERY_DATASET', 'gpes_en_old_api');
+// define('BIGQUERY_TABLE', 'signups');
+
+/**
+ * USE SQLITE TO STORE DATA
+ * Uncomment and configure bellow to enable sending data to SQLite
+ */
+ 
+// use Medoo\Medoo;
+// $database = new Medoo([
+//	'database_type' => 'sqlite',
+//	'database_file' => '/home/your-user/db/gp_es_old_api.db'
+// ]);
 
 ?>

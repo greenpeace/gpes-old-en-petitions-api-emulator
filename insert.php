@@ -1,12 +1,16 @@
 <?php
 
-require('config.php');
-
 require __DIR__ . '/vendor/autoload.php';
 
 use Google\Cloud\BigQuery\BigQueryClient;
 
+require_once('config.php');
 
+/**
+ * Sends data to Google Big QUERY
+ * @param array $data              The data to send
+ * @param [[Type]] [$insertId = null] An optional Insert ID
+ */
 function stream_row($data, $insertId = null) {
 
     $bigQuery = new BigQueryClient([
@@ -30,5 +34,16 @@ function stream_row($data, $insertId = null) {
         }
     }
 };
+
+/**
+ * Sends data to SQLlite, MySQL and other
+ * @param array $data     The data to send
+ * @param [[Type]] $database [[Description]]
+ */
+function insert_row( $data, $database ) {
+
+    $database->insert("signups", $data );
+    
+}
 
 ?>

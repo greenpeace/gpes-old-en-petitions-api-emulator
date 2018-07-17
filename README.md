@@ -1,18 +1,35 @@
 # EN old API emulator
 
-**This script emulates the old EN API and stores petition signups in a Google Big Query table, instead of EN.** 
+**This script emulates the old EN API but stores petition signups outside EN.** You can store petition data in BigQuery or SQlite.
 
-If you use it, you’ll need to manually export the signups from BigQuery to Engaging Networks. It's useful if you have **legacy petitions** and need to have them running in 2019 **without changing the code** to the new API.  With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. 
+This script is useful if you have **legacy petitions** and need to have them running in 2019 **without changing the code** to the new API.  With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. 
 
-Please note this script was developed for the Spanish office, so it will need small adjustments before it can be used by other NROs.
+Please note this script was developed for the Spanish Office, so it will need small adjustments before it can be used by other NROs. If you use it, you’ll need to manually export the signups to your CRM or mailing app. 
 
 ## Install
 
-**Important**: To adapt this script to your field names, modify `index.php` in this repository.
+**Important**: To adapt this script to your field names, modify `index.php` in this repository. Please note you'll need to adjust your database fields as well.
 
-For more information on sending data to BQ please visit the pages on [Google BigQuery Libraries](https://cloud.google.com/bigquery/docs/reference/libraries).
+### 1 - Install the libraries
 
-### Configure Google Cloud and Big Query
+In your PHP server, install Composer and the required libraries with the command:
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+php composer.phar require google/cloud-bigquery
+php composer.phar require catfan/Medoo
+```
+
+### 2 - Database
+
+To store the signups you can use **one** of the following options:
+
+1. Google Cloud and Big Query
+2. SQLite
+
+Bellow the instructions:
+
+#### Configure Google Cloud and Big Query
 
 1. Create a json [Google Cloud service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) with the role *BigQuery User* and download the json access file. Later you'll need to link to it from the `config.php` file.
 2. Create a Big Query dataset and share it with the service account. *(for example: `gpes_en_old_api`)*
@@ -22,7 +39,7 @@ For more information on sending data to BQ please visit the pages on [Google Big
 signed_date:DATE,signed_time:FLOAT,ea_campaign_id:STRING,page_url:STRING,utm_medium:STRING,utm_source:STRING,utm_campaign:STRING,utm_content:STRING,utm_term:STRING,gclid:STRING,ip:STRING,user_agent:STRING,first_name:STRING,last_name:STRING,id_number:STRING,email:STRING,phone_number:STRING,postcode:STRING,email_ok:STRING,privacy:STRING
 ```
 
-### Install and configure this php script
+#### Install and configure this php script
 
 Now you'll need to configure the php script with the service account info (the .json file), and project, dataset and table info.
 
@@ -35,21 +52,60 @@ Now you'll need to configure the php script with the service account info (the .
   * Configure the URL for the common thank you page. Currently this script requires a unique thank you page for all your petitions. If needed we'll allow mutiple thank you pages in the future.
 5. Save the `config.php` file.
 
-### Install the libraries
+For more information on sending data to BQ please visit the pages on [Google BigQuery Libraries](https://cloud.google.com/bigquery/docs/reference/libraries).
 
-In your PHP server, install Composer and the required libraries with the command:
+#### Configure SQLite
 
-```bash
-curl -sS https://getcomposer.org/installer | php
-php composer.phar require google/cloud-bigquery
+First create a SQLlite file with a database. You can upload the gp_es_old_api.db file or create a SQLite table with the command:
+
+```sql
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `signups` (
+	`signed_date`	TEXT,
+	`signed_time`	REAL,
+	`ea_campaign_id`	TEXT,
+	`page_url`	TEXT,
+	`utm_medium`	TEXT,
+	`utm_source`	TEXT,
+	`utm_campaign`	TEXT,
+	`utm_content`	TEXT,
+	`utm_term`	TEXT,
+	`gclid`	TEXT,
+	`ip`	TEXT,
+	`user_agent`	TEXT,
+	`first_name`	TEXT,
+	`last_name`	TEXT,
+	`id_number`	TEXT,
+	`email`	TEXT,
+	`phone_number`	TEXT,
+	`postcode`	TEXT,
+	`email_ok`	TEXT,
+	`privacy`	TEXT,
+	PRIMARY KEY(`signed_time`)
+);
+COMMIT;
 ```
 
-### Upload this repo files
+Please ensure that users can't download the database file as this would be a major security breach. Put your .db file in a folder outside the server.
+
+Then at the end of `config.php` uncomment the lines:
+
+```php
+use Medoo\Medoo;
+$database = new Medoo([
+	'database_type' => 'sqlite',
+	'database_file' => '/home/your-user/your-database/gp_es_old_api.db'
+]);
+```
+
+And configure the `database_file` option with the path to your database file.
+
+### 3 - Upload this repo files
 
 * `index.php`
 * `config.php`
 * `input.php`
-* `bigquery.php`
+* `insert.php`
 * `testing-html.html`
 * `testing-js.html`
 

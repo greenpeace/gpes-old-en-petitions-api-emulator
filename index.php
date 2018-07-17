@@ -3,7 +3,7 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require('bigquery.php');
+require('insert.php');
 require('input.php');
 
 // 1st - Get data from a POST or GET REQUEST
@@ -38,12 +38,18 @@ $data = [
 
 ];
 
-// 2nd - Insert data into bigquery
+// 2nd - Insert data
 
 if ( filter_var( $data['email'], FILTER_VALIDATE_EMAIL) ) {
     
+    // Big Query
     if ( defined('BIGQUERY_PROJECT_ID') && defined('BIGQUERY_DATASET') && defined('BIGQUERY_TABLE') && getenv("GOOGLE_APPLICATION_CREDENTIALS") !== false ) {
         stream_row($data);
+    }
+    
+    // Other
+    if ( isset($database) ) {
+        insert_row($data, $database);
     }
     
 } else {
