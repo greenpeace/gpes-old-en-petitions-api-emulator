@@ -1,6 +1,6 @@
 # EN old API emulator
 
-**This script emulates the old EN API but stores petition signups outside EN.** You can store petition data in BigQuery, SQlite or MySQL (For example Google Cloud SQL).
+**This script emulates the old EN API but stores petition signups outside Engaging.** You can store petition data in BigQuery, SQlite or MySQL (For example Google Cloud SQL).
 
 This script is useful if you have **legacy petitions** and need to have them running in 2019 **without changing the code** to the new API.  With this script, in your old petitions, you might just need to change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. 
 
@@ -36,6 +36,8 @@ Follow the instructions in one of the the links above and then continue bellow.
 
 ### 3 - Upload the files to the server
 
+Now that you have configured your script and your database you can upload the files: 
+
 * `index.php`
 * `config.php`
 * `input.php`
@@ -52,19 +54,19 @@ The `vendor` folder, downloaded with composer, should be uploaded as well.
 3. Test the html form redirection by submitting the form in [testing-html.html](testing-html.html).
 4. Confirm again that your last form test is in the database.
 
-If you use **BigQuery**, you can check your database with the query:
+If you use **BigQuery**, you can [check your database](https://bigquery.cloud.google.com/) with the query:
 
 ```sql
 #standardSQL
 SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
 ```
 
-If you use **SQLite** you can download your database file and open it in your computer with an [SQLite client](http://sqlitebrowser.org/).
+If you use **SQLite** you can download your database file and open it in your computer with an [SQLite client](http://sqlitebrowser.org/). Or you can install [Adminer](https://www.adminer.org/en/) on your server.
 
-For **MySQL** you can use a client like for example [Sequel Pro](https://www.sequelpro.com/) to access your data.
+And if you use **MySQL** you can use a client like for example [Sequel Pro](https://www.sequelpro.com/) to access your data or a server-side script like [Adminer](https://www.adminer.org/en/).
 
 ## Point your forms to your new API
 
-In your forms, change the receiving URL from `https://e-activist.com/ea-action/action` to the receiving URL your PHP server. It should be the `index.php` file or it's parent folder.
+In your forms change the URL that receives petition's data from `https://e-activist.com/ea-action/action` to equivalent URL in your PHP server. It should be the script's `index.php` file or it's parent folder.
 
-Normally you should do this twice: in the html and in the javascript.
+Normally you should do this twice: in the html and in the javascript. For more information check [testing-html-html](testing-html-html) and [testing-js.html](testing-js.html).

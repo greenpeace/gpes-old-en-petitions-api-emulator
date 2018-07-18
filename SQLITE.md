@@ -1,5 +1,7 @@
 # SQLite
 
+Using this script with SQLite is the easiest way to store data.
+
 ## Configure SQLite
 
 We need an SQLlite file with the database in the server. You can upload the `gp_es_old_api.db` file OR create a SQLite table with this structure:

@@ -1,8 +1,10 @@
 # MySQL
 
+This script works also with a MySQL database. 
+
 ## Configure Google Cloud SQL
 
-Google Cloud SQL is Google hosted MySQL or PostgreSQL. Check Google Cloud SQL documentation on how to create a user and SSL certificates to access the databases.
+If you are a Google Cloud user, you can host your MySQL database with Google Cloud. Please check Google Cloud SQL documentation on how to create a user and SSL certificates to access the databases.
 
 ## Configure MySQL
 

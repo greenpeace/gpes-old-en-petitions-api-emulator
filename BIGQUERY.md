@@ -1,5 +1,7 @@
 # Google Cloud and Big Query
 
+BigQuery is an excellent tool to store your data, specially if you already use BigQuery and/or Google Cloud.
+
 ## Configure BigQuery
 
 1. Create a json [Google Cloud service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) with the role *BigQuery User* and download the json access file. Later you'll need to link to it from the `config.php` file.
