@@ -7,3 +7,4 @@
 *.lock
 *.phar
 config.php
+!composer.json

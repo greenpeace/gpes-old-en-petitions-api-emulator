@@ -12,17 +12,16 @@ Please note this script was developed for the Spanish Office, so it will need sm
 
 ### 1 - Download this script and the required libraries
 
+Download this script with Git:
+
+`git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
+
 Get Composer and download the required libraries with the command:
 
 ```bash
 curl -sS https://getcomposer.org/installer | php
-php composer.phar require google/cloud-bigquery
-php composer.phar require catfan/Medoo
+php composer.phar install
 ```
-
-Download this script with Git:
-
-`git clone https://github.com/greenpeace/gpes-old-en-petitions-api-emulator.git`
 
 ### 2 - Configure the database
 
