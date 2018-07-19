@@ -5,11 +5,11 @@
     <meta charset="utf-8">
 </head>
 <body>
-    
+
     <h1>Testing sending data to the server via Javascript</h1>
-    
+
     <ul></ul>
-    
+
     <p>Edit the html file to configure the tests.</p>
 
     <p>Confirm the signup data is in <a href="https://bigquery.cloud.google.com/" target="_blank">BigQuery</a> with the query:</p>
@@ -18,9 +18,9 @@
     #standardSQL
     SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
     </pre>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+
     <script>
 
     /*global jQuery, console */
@@ -80,9 +80,9 @@
         console.error("Error sending data to the old api emulator");
         jQuery("ul").append("<li>Error while sending data to the old api emulator.</li>");
 
-    });                
+    });
 
     </script>
-    
+
 </body>
 </html>
