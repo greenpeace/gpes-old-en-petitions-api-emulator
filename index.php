@@ -3,8 +3,8 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-require('insert.php');
-require('input.php');
+require('src/insert.php');
+require('src/input.php');
 
 // 1st - Get data from a POST or GET REQUEST
 

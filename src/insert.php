@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use Google\Cloud\BigQuery\BigQueryClient;
 
@@ -16,7 +16,7 @@ function stream_row($data, $insertId = null) {
     $bigQuery = new BigQueryClient([
         'projectId' => BIGQUERY_PROJECT_ID,
     ]);
-    
+
     $dataset = $bigQuery->dataset(BIGQUERY_DATASET);
     $table = $dataset->table(BIGQUERY_TABLE);
 
@@ -43,7 +43,7 @@ function stream_row($data, $insertId = null) {
 function insert_row( $data, $database ) {
 
     $database->insert("signups", $data );
-    
+
 }
 
 ?>
