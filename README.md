@@ -27,9 +27,9 @@ php composer.phar install
 
 To store the signups you can use **Bigquery**, **SQLite** or **MySQL**. See how to:
 
-* Configure [Google Cloud and Big Query](BIGQUERY.md)
-* Configure [SQLite](SQLITE.md)
-* Configure [MySQL](MySQL.md) - For example for Google Cloud SQL
+* Configure [Google Cloud and Big Query](help/BIGQUERY.md)
+* Configure [SQLite](help/SQLITE.md)
+* Configure [MySQL](help/MySQL.md) - For example for Google Cloud SQL
 
 Follow the instructions in one of the the links above and then continue bellow.
 
