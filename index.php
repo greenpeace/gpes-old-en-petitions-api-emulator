@@ -4,9 +4,10 @@
 //ini_set('display_errors', 1);
 
 require 'vendor/autoload.php';
-require('src/insert.php');
 require('src/input.php');
 require_once('config.php');
+
+use Insert\Insert;
 
 // 1st - Get data from a POST or GET REQUEST
 

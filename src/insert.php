@@ -1,5 +1,7 @@
 <?php
 
+namespace Insert;
+
 use Google\Cloud\BigQuery\BigQueryClient;
 
 class Insert {
