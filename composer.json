@@ -5,7 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Insert\\": "src/"
+            "Insert\\": "src/",
+            "Utils\\": "src/"
         }
     }
 }
