@@ -52,7 +52,7 @@ if ( filter_var( $data['email'], FILTER_VALIDATE_EMAIL) ) {
     
     // Other
     if ( isset($database) ) {
-        Insert::insert_row($data, $database);
+        Insert::insert_row_sql($data, $database);
     }
     
 } else {

@@ -40,7 +40,7 @@ class Insert {
      * @param array $data     The data to send
      * @param [[Type]] $database [[Description]]
      */
-    static function insert_row( $data, $database ) {
+    static function insert_row_sql( $data, $database ) {
 
         $database->insert("signups", $data );
 
