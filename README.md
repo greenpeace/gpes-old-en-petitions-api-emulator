@@ -27,9 +27,9 @@ php composer.phar install
 
 To store the signups you can use **Bigquery**, **SQLite** or **MySQL**. See how to:
 
-* Configure [Google Cloud and Big Query](BIGQUERY.md)
-* Configure [SQLite](SQLITE.md)
-* Configure [MySQL](MySQL.md) - For example for Google Cloud SQL
+* Configure [Google Cloud and Big Query](help/BIGQUERY.md)
+* Configure [SQLite](help/SQLITE.md)
+* Configure [MySQL](help/MySQL.md) - For example for Google Cloud SQL
 
 Follow the instructions in one of the the links above and then continue bellow.
 
@@ -41,16 +41,16 @@ Now that you have configured your script and your database you can upload the fi
 * `config.php`
 * `input.php`
 * `insert.php`
-* `testing-html.html`
-* `testing-js.html`
+* `testing/html.html`
+* `testing/js.html`
 
 The `vendor` folder, downloaded with composer, should be uploaded as well. 
 
 ## Test it!
 
-1. With your browser, visit [testing-js.html](testing-js.html) in your server. 
+1. With your browser, visit [testing/js.html](testing/js.html) in your server. 
 2. Confirm there's data in your new petitions database. 
-3. Test the html form redirection by submitting the form in [testing-html.html](testing-html.html).
+3. Test the html form redirection by submitting the form in [testing/html.html](testing/html.html).
 4. Confirm again that your last form test is in the database.
 
 If you use **BigQuery**, you can [check your database](https://bigquery.cloud.google.com/) with the query:

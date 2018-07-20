@@ -5,9 +5,9 @@
     <meta charset="utf-8">
 </head>
 <body>
-    
+
     <h1>Testing sending data to the server via HTML</h1>
-        
+
     <p>Edit the html file to configure the tests.</p>
 
     <p>Confirm the signup data is in <a href="https://bigquery.cloud.google.com/" target="_blank">BigQuery</a> with the query:</p>
@@ -16,9 +16,9 @@
     #standardSQL
     SELECT * FROM `gpes_en_old_api.signups` ORDER BY signed_time;
     </pre>
-    
 
-    <form method="POST" action="index.php">
+
+    <form method="POST" action="../index.php">
 
         <input type="hidden" name="ea.campaign.id" value="9999" />
 
@@ -75,7 +75,7 @@
 
     </form>
 
-    
-    
+
+
 </body>
 </html>
