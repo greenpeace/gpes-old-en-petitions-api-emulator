@@ -35,14 +35,12 @@ Follow the instructions in one of the the links above and then continue bellow.
 
 ### 3 - Upload the files to the server
 
-Now that you have configured your script and your database you can upload the files: 
+Now that you have configured your script and your database you can upload the files and folders: 
 
 * `index.php`
 * `config.php`
-* `input.php`
-* `insert.php`
-* `testing/html.html`
-* `testing/js.html`
+* `src/`
+* `testing/`
 
 The `vendor` folder, downloaded with composer, should be uploaded as well. 
 
