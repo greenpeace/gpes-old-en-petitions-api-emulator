@@ -3,8 +3,10 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
+require 'vendor/autoload.php';
 require('src/insert.php');
 require('src/input.php');
+require_once('config.php');
 
 // 1st - Get data from a POST or GET REQUEST
 
@@ -44,12 +46,12 @@ if ( filter_var( $data['email'], FILTER_VALIDATE_EMAIL) ) {
     
     // Big Query
     if ( defined('BIGQUERY_PROJECT_ID') && defined('BIGQUERY_DATASET') && defined('BIGQUERY_TABLE') && getenv("GOOGLE_APPLICATION_CREDENTIALS") !== false ) {
-        stream_row($data);
+        Insert::stream_row_bigquery($data);
     }
     
     // Other
     if ( isset($database) ) {
-        insert_row($data, $database);
+        Insert::insert_row($data, $database);
     }
     
 } else {
